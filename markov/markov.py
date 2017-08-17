@@ -1,5 +1,4 @@
 import re
-import math
 
 class MarkovLite:
 	def __init__(self, cursor):
