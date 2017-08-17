@@ -54,7 +54,7 @@ class MarkovLite:
 		if sentence.strip() == "":
 			q = await self.cursor.execute('SELECT * FROM `markov` ORDER BY RAND() LIMIT 1')
 			return await q.fetchone()
-		q = await self.cursor.execute(self.sql, (f"%{sentence}%", f"%{sentence}%"))
+		q = await self.cursor.execute(self.sql, (f"% {sentence} %", f"{sentence} %"))
 		return await q.fetchone()
 
 	async def generate(self, depth:int=2, maxlen:int=50, sentence:str=""):
