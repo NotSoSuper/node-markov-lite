@@ -16,8 +16,7 @@ class MarkovLite:
 			return []
 		return self.regex.split(sentence)
 
-	def get_chain(self, words:str, depth:int=2):
-		words = words.split()
+	def get_chain(self, words:list, depth:int=2):
 		out = []
 		for i in range(depth - 1):
 			idx = len(words) - depth + i
@@ -27,9 +26,7 @@ class MarkovLite:
 				break
 		return out
 
-	def match_chain(self, words:str, chain:str, depth:int=2):
-		words = words.split()
-		chain = chain.split()
+	def match_chain(self, words:list, chain:list, depth:int=2):
 		out = []
 		for i in range(len(words) - 1):
 			word = words[i]
